@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Local Roofing Experts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0f1f2e;
+    --gold: #c9922a;
+    --gold-light: #e8b84b;
+    --cream: #f7f2eb;
+    --rust: #b94a2c;
+    --white: #ffffff;
+    --gray: #6b7280;
+    --light-gray: #f3f4f6;
+    --trust-green: #1a6b3c;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  /* TOP TRUST BAR */
+  .trust-bar {
+    background: var(--navy);
+    color: var(--cream);
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+  .trust-bar span { color: var(--gold-light); }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--navy) 0%, #1a3a52 60%, #0f2a3e 100%);
+  }
+
+  .hero-bg-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(201,146,42,0.04) 0px, rgba(201,146,42,0.04) 1px, transparent 1px, transparent 60px),
+      repeating-linear-gradient(-45deg, rgba(201,146,42,0.04) 0px, rgba(201,146,42,0.04) 1px, transparent 1px, transparent 60px);
+    pointer-events: none;
+  }
+
+  .hero-accent {
+    position: absolute;
+    right: -100px;
+    top: -100px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(201,146,42,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .location-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,146,42,0.15);
+    border: 1px solid rgba(201,146,42,0.4);
+    color: var(--gold-light);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    animation: fadeInUp 0.5s ease both;
+  }
+
+  .location-pill svg { width: 14px; height: 14px; }
+
+  .hero-tag {
+    display: inline-block;
+    background: var(--rust);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    animation: fadeInUp 0.5s 0.1s ease both;
+    opacity: 0;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 20px;
+    animation: fadeInUp 0.6s 0.15s ease both;
+    opacity: 0;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--gold-light);
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    color: rgba(247,242,235,0.75);
+    line-height: 1.7;
+    margin-bottom: 36px;
+    max-width: 520px;
+    animation: fadeInUp 0.6s 0.25s ease both;
+    opacity: 0;
+  }
+
+  .trust-badges {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    animation: fadeInUp 0.6s 0.35s ease both;
+    opacity: 0;
+  }
+
+  .badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(247,242,235,0.9);
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .badge-icon {
+    width: 32px;
+    height: 32px;
+    background: rgba(201,146,42,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold-light);
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+
+  /* CTA CARD */
+  .cta-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 36px 32px;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.35), 0 0 0 1px rgba(201,146,42,0.15);
+    animation: fadeInRight 0.7s 0.2s ease both;
+    opacity: 0;
+  }
+
+  .cta-card-header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .cta-card-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .cta-card-header p {
+    font-size: 13px;
+    color: var(--gray);
+  }
+
+  .free-badge {
+    display: inline-block;
+    background: var(--trust-green);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+  }
+
+  .cta-form { display: flex; flex-direction: column; gap: 14px; }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .form-field label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .form-field input, .form-field select {
+    padding: 12px 14px;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--navy);
+    background: var(--light-gray);
+    transition: border-color 0.2s, background 0.2s;
+    outline: none;
+  }
+
+  .form-field input:focus, .form-field select:focus {
+    border-color: var(--gold);
+    background: white;
+  }
+
+  .call-btn {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: var(--navy);
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 4px;
+    letter-spacing: 0.01em;
+  }
+
+  .call-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(201,146,42,0.4);
+  }
+
+  .call-btn:active { transform: translateY(0); }
+
+  .call-btn svg { width: 20px; height: 20px; }
+
+  .phone-number {
+    text-align: center;
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--gray);
+  }
+
+  .phone-number a {
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 20px;
+    text-decoration: none;
+    display: block;
+    margin-top: 4px;
+    letter-spacing: 0.03em;
+  }
+
+  .phone-number a:hover { color: var(--gold); }
+
+  .form-privacy {
+    text-align: center;
+    font-size: 11px;
+    color: #9ca3af;
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+
+  /* SOCIAL PROOF STRIP */
+  .proof-strip {
+    background: var(--white);
+    border-bottom: 1px solid #e5e7eb;
+    padding: 28px 40px;
+  }
+
+  .proof-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  .proof-stat {
+    text-align: center;
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .proof-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1;
+  }
+
+  .proof-stat-label {
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  .proof-divider {
+    width: 1px;
+    height: 50px;
+    background: #e5e7eb;
+    flex-shrink: 0;
+  }
+
+  /* HOW IT WORKS */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 40px;
+  }
+
+  .section-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 900;
+    color: var(--navy);
+    margin-bottom: 50px;
+    max-width: 500px;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .step {
+    position: relative;
+    padding: 32px;
+    background: white;
+    border-radius: 16px;
+    border: 1px solid #e9e4da;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .step:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(15,31,46,0.08);
+  }
+
+  .step-num {
+    width: 44px;
+    height: 44px;
+    background: var(--navy);
+    color: var(--gold-light);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 20px;
+  }
+
+  .step h4 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .step p {
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+
+  /* REVIEWS */
+  .reviews-section {
+    background: var(--navy);
+    padding: 80px 40px;
+  }
+
+  .reviews-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .reviews-section .section-title { color: var(--white); }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .review-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(201,146,42,0.2);
+    border-radius: 16px;
+    padding: 28px;
+    transition: background 0.2s;
+  }
+
+  .review-card:hover { background: rgba(255,255,255,0.09); }
+
+  .stars {
+    color: var(--gold-light);
+    font-size: 16px;
+    margin-bottom: 14px;
+    letter-spacing: 2px;
+  }
+
+  .review-text {
+    font-size: 14px;
+    color: rgba(247,242,235,0.85);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  .reviewer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .reviewer-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--rust) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: white;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+
+  .reviewer-name {
+    font-weight: 600;
+    color: var(--white);
+    font-size: 14px;
+  }
+
+  .reviewer-loc {
+    font-size: 12px;
+    color: rgba(247,242,235,0.5);
+    margin-top: 2px;
+  }
+
+  /* BOTTOM CTA */
+  .bottom-cta {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    padding: 60px 40px;
+    text-align: center;
+  }
+
+  .bottom-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+
+  .bottom-cta p {
+    font-size: 16px;
+    color: rgba(15,31,46,0.7);
+    margin-bottom: 32px;
+  }
+
+  .bottom-call-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--navy);
+    color: var(--white);
+    padding: 18px 40px;
+    border-radius: 100px;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+    letter-spacing: 0.02em;
+  }
+
+  .bottom-call-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 32px rgba(15,31,46,0.25);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 24px 40px;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(247,242,235,0.35);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  /* PERSONALIZATION OVERLAY */
+  #personalization-loading {
+    position: fixed;
+    inset: 0;
+    background: var(--navy);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    transition: opacity 0.5s ease;
+  }
+
+  #personalization-loading.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .loader-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+  }
+
+  .loader-bar-track {
+    width: 220px;
+    height: 3px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+
+  .loader-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    border-radius: 100px;
+    animation: loadBar 1.4s ease-in-out forwards;
+  }
+
+  @keyframes loadBar {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  .loader-text {
+    font-size: 13px;
+    color: rgba(247,242,235,0.5);
+    letter-spacing: 0.04em;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero-content { grid-template-columns: 1fr; gap: 40px; }
+    .steps { grid-template-columns: 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .proof-inner { justify-content: center; }
+    .proof-divider { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PERSONALIZATION LOADING SCREEN -->
+<div id="personalization-loading">
+  <div class="loader-logo">HomePro</div>
+  <div class="loader-bar-track">
+    <div class="loader-bar-fill"></div>
+  </div>
+  <div class="loader-text" id="loader-text">Finding local experts near you...</div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  🔒 All contractors are <span>licensed, bonded & insured</span> · No obligation · Free estimates
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="location-pill" id="location-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <span id="location-text">Your Area</span>
+      </div>
+      <div class="hero-tag" id="hero-tag">Free Estimate · No Commitment</div>
+      <h1 id="hero-headline">Your Roof Deserves <em>Expert Hands</em> — Not a Gamble</h1>
+      <p class="hero-sub" id="hero-sub">We connect homeowners with fully vetted, local roofing professionals. Get a honest assessment, transparent pricing, and work you can stand behind.</p>
+      <div class="trust-badges">
+        <div class="badge">
+          <div class="badge-icon">✓</div>
+          <span>Licensed & Insured</span>
+        </div>
+        <div class="badge">
+          <div class="badge-icon">★</div>
+          <span>4.9 Avg. Rating</span>
+        </div>
+        <div class="badge">
+          <div class="badge-icon">⚡</div>
+          <span>Same-Day Response</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA CARD -->
+    <div class="cta-card">
+      <div class="cta-card-header">
+        <div class="free-badge">100% Free</div>
+        <h3>Get Your Free Estimate</h3>
+        <p>Speak with a local expert in minutes</p>
+      </div>
+      <div class="cta-form">
+        <div class="form-field">
+          <label>Your ZIP Code</label>
+          <input type="text" id="zip-input" placeholder="e.g. 80012" maxlength="5">
+        </div>
+        <div class="form-field">
+          <label>Service Needed</label>
+          <select id="service-select">
+            <option value="">Select a service...</option>
+            <option value="inspection">Roof Inspection</option>
+            <option value="repair">Roof Repair</option>
+            <option value="replacement">Full Replacement</option>
+            <option value="storm">Storm / Hail Damage</option>
+            <option value="gutter">Gutters</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Home Type</label>
+          <select id="home-type">
+            <option value="">Select...</option>
+            <option value="single">Single Family</option>
+            <option value="condo">Condo / Townhome</option>
+            <option value="multi">Multi-Family</option>
+            <option value="commercial">Commercial</option>
+          </select>
+        </div>
+        <button class="call-btn" onclick="handleCall()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.12 2.18 2 2 0 012.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.16 7.84a16 16 0 006 6l1.21-1.21a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <span id="cta-btn-text">Connect Me with an Expert</span>
+        </button>
+        <div class="phone-number">
+          Or call us directly:
+          <a href="tel:+18005550100" id="phone-display">(800) 555-0100</a>
+        </div>
+        <div class="form-privacy">🔒 Your info is private. We never sell your data.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF STRIP -->
+<div class="proof-strip">
+  <div class="proof-inner">
+    <div class="proof-stat">
+      <div class="proof-stat-num" id="stat-calls">14,800+</div>
+      <div class="proof-stat-label">Homeowners Helped</div>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-stat">
+      <div class="proof-stat-num">4.9 ★</div>
+      <div class="proof-stat-label">Average Rating</div>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-stat">
+      <div class="proof-stat-num">$0</div>
+      <div class="proof-stat-label">Cost to Get a Quote</div>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-stat">
+      <div class="proof-stat-num">&lt; 3 min</div>
+      <div class="proof-stat-label">To Speak with an Expert</div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="section">
+  <div class="section-label">Simple Process</div>
+  <h2 class="section-title">Get Expert Help in 3 Easy Steps</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4>Tell Us What You Need</h4>
+      <p>Answer a few quick questions about your roof and location. Takes under 60 seconds.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4>Get Matched Instantly</h4>
+      <p>We connect you with a licensed, vetted local contractor — no random call centers, no runaround.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4>Get a Free Honest Estimate</h4>
+      <p>A real expert walks you through your options with no pressure and no hidden fees. Ever.</p>
+    </div>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<div class="reviews-section">
+  <div class="reviews-inner">
+    <div class="section-label" style="color: var(--gold-light);">Real Homeowners</div>
+    <h2 class="section-title" id="reviews-title">What Your Neighbors Are Saying</h2>
+    <div class="reviews-grid" id="reviews-grid">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- BOTTOM CTA -->
+<div class="bottom-cta">
+  <h2 id="bottom-headline">Don't Wait on a Leaky Roof</h2>
+  <p id="bottom-sub">Get a free, no-pressure estimate from a local expert today.</p>
+  <a href="tel:+18005550100" class="bottom-call-btn">
+    📞 Call Now — It's Free
+  </a>
+</div>
+
+<footer>
+  © 2025 HomePro Roofing Network · All Rights Reserved · Licensed Contractors Only · 
+  <a href="#" style="color: rgba(247,242,235,0.4);">Privacy Policy</a> · 
+  <a href="#" style="color: rgba(247,242,242,0.4);">Terms</a>
+</footer>
+
+<script>
+// ─── PERSONALIZATION ENGINE ───────────────────────────────────────────────
+
+const PROFILES = {
+  senior_homeowner: {
+    tag: "Trusted by Homeowners 55+",
+    headline: "Protect Your Home with <em>Contractors You Can Trust</em>",
+    sub: "We know choosing a contractor is a big decision. Every professional in our network is background-checked, licensed, and has earned the trust of your neighbors.",
+    ctaBtn: "Speak with a Trusted Local Expert",
+    reviewTitle: "Trusted by Homeowners Just Like You",
+    reviews: [
+      { stars: 5, text: "At my age I was worried about being taken advantage of. The contractor was honest, gave me a fair price, and didn't try to upsell me on anything I didn't need.", name: "Margaret T.", loc: "Fort Collins, CO", initials: "MT" },
+      { stars: 5, text: "Called in the morning and had someone at my door by noon. Professional, courteous, and explained everything clearly. I felt completely comfortable.", name: "Robert H.", loc: "Aurora, CO", initials: "RH" },
+      { stars: 5, text: "Finally a service that isn't trying to rush you. They took time to walk me through the whole estimate and never made me feel pressured.", name: "Linda W.", loc: "Lakewood, CO", initials: "LW" }
+    ]
+  },
+  value_seeker: {
+    tag: "No Hidden Fees · Transparent Pricing",
+    headline: "Get the <em>Best Price</em> on Roofing — Without the Runaround",
+    sub: "Stop overpaying. Our network of pre-vetted local contractors competes for your business, so you get a fair, honest price every time. Completely free to use.",
+    ctaBtn: "Get My Free Estimate Now",
+    reviewTitle: "Homeowners Who Saved Big",
+    reviews: [
+      { stars: 5, text: "Got three quotes through here in one afternoon. Saved almost $2,400 compared to the first company that came out cold. Couldn't believe the difference.", name: "Jason M.", loc: "Denver, CO", initials: "JM" },
+      { stars: 5, text: "They matched me with a contractor who was honest about what actually needed to be replaced vs. repaired. Ended up spending half what I expected.", name: "Tanya R.", loc: "Centennial, CO", initials: "TR" },
+      { stars: 5, text: "No pushy sales tactics, no inflated estimates. Just a straightforward price for quality work. Exactly what I needed.", name: "Kevin B.", loc: "Thornton, CO", initials: "KB" }
+    ]
+  },
+  default: {
+    tag: "Free Estimate · No Commitment",
+    headline: "Your Roof Deserves <em>Expert Hands</em> — Not a Gamble",
+    sub: "We connect homeowners with fully vetted, local roofing professionals. Get an honest assessment, transparent pricing, and work you can stand behind.",
+    ctaBtn: "Connect Me with an Expert",
+    reviewTitle: "What Your Neighbors Are Saying",
+    reviews: [
+      { stars: 5, text: "I'd been putting off getting my roof looked at for months. Called through this service and had a contractor out the same day. Fair price, great work.", name: "Sarah D.", loc: "Denver, CO", initials: "SD" },
+      { stars: 5, text: "After the hail storm last spring I was overwhelmed. This made the whole process easy — one call and everything was handled professionally.", name: "Mike L.", loc: "Aurora, CO", initials: "ML" },
+      { stars: 5, text: "Straightforward, honest, and fast. The contractor showed up on time, gave me a clear estimate, and did exactly what he promised. Rare these days.", name: "Christine A.", loc: "Littleton, CO", initials: "CA" }
+    ]
+  }
+};
+
+// Simulate demographic detection (in production: UTM params, IP geolocation, pixel data, age targeting)
+function detectProfile() {
+  const params = new URLSearchParams(window.location.search);
+
+  // UTM / traffic source signals
+  const ageParam = params.get('age') || params.get('dem_age') || '';
+  const genderParam = params.get('gender') || '';
+  const src = params.get('utm_source') || '';
+
+  // Senior signal: age param 55+, or Facebook senior audience tags
+  if (ageParam >= 55 || src.includes('senior') || params.get('audience') === 'senior') {
+    return 'senior_homeowner';
+  }
+
+  // Value seeker: Google search traffic (cost-conscious)
+  if (src === 'google' || src === 'bing' || params.get('kw')?.includes('cheap') || params.get('kw')?.includes('price')) {
+    return 'value_seeker';
+  }
+
+  // Default: general homeowner
+  return 'default';
+}
+
+// Detect location from IP (simulated — in production use ipapi.co or MaxMind)
+async function detectLocation() {
+  try {
+    const res = await fetch('https://ipapi.co/json/');
+    const data = await res.json();
+    return {
+      city: data.city || 'Your Area',
+      state: data.region_code || '',
+      zip: data.postal || ''
+    };
+  } catch {
+    return { city: 'Your Area', state: '', zip: '' };
+  }
+}
+
+function renderStars(n) {
+  return '★'.repeat(n) + '☆'.repeat(5 - n);
+}
+
+function applyProfile(profile, location) {
+  const p = PROFILES[profile];
+  const loc = location.city && location.state ? `${location.city}, ${location.state}` : 'Your Area';
+
+  // Location pill
+  document.getElementById('location-text').textContent = loc;
+  if (location.zip) document.getElementById('zip-input').value = location.zip;
+
+  // Hero copy
+  document.getElementById('hero-tag').textContent = p.tag;
+  document.getElementById('hero-headline').innerHTML = p.headline;
+  document.getElementById('hero-sub').textContent = p.sub;
+  document.getElementById('cta-btn-text').textContent = p.ctaBtn;
+
+  // Reviews
+  document.getElementById('reviews-title').textContent = p.reviewTitle;
+  const grid = document.getElementById('reviews-grid');
+  grid.innerHTML = p.reviews.map(r => `
+    <div class="review-card">
+      <div class="stars">${renderStars(r.stars)}</div>
+      <p class="review-text">"${r.text}"</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">${r.initials}</div>
+        <div>
+          <div class="reviewer-name">${r.name}</div>
+          <div class="reviewer-loc">${r.loc}</div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  // Bottom CTA tweak for senior
+  if (profile === 'senior_homeowner') {
+    document.getElementById('bottom-headline').textContent = "Peace of Mind Starts with One Phone Call";
+    document.getElementById('bottom-sub').textContent = "Speak with a trusted local expert — no pressure, no obligation.";
+  }
+}
+
+// ─── INIT ──────────────────────────────────────────────────────────────────
+
+window.addEventListener('DOMContentLoaded', async () => {
+  const loaderText = document.getElementById('loader-text');
+  const loader = document.getElementById('personalization-loading');
+
+  setTimeout(() => loaderText.textContent = 'Personalizing your experience...', 600);
+  setTimeout(() => loaderText.textContent = 'Almost ready...', 1100);
+
+  const [location] = await Promise.all([
+    detectLocation(),
+    new Promise(r => setTimeout(r, 1500))
+  ]);
+
+  const profile = detectProfile();
+  applyProfile(profile, location);
+
+  loader.classList.add('hidden');
+  setTimeout(() => loader.remove(), 600);
+});
+
+// ─── CALL HANDLER ──────────────────────────────────────────────────────────
+
+function handleCall() {
+  const zip = document.getElementById('zip-input').value;
+  const service = document.getElementById('service-select').value;
+  if (!zip || zip.length < 5) {
+    document.getElementById('zip-input').style.borderColor = '#ef4444';
+    document.getElementById('zip-input').focus();
+    return;
+  }
+  if (!service) {
+    document.getElementById('service-select').style.borderColor = '#ef4444';
+    document.getElementById('service-select').focus();
+    return;
+  }
+  // In production: fire pixel event, then redirect to call
+  window.location.href = 'tel:+18005550100';
+}
+</script>
+</body>
+</html>
