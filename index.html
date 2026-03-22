@@ -1220,7 +1220,12 @@ function estNext() {
   }
   estState.step++;
   renderEstStep();
-  document.getElementById('estimator').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // Only scroll if estimator is above the viewport, not on every step
+  const est = document.getElementById('estimator');
+  const rect = est.getBoundingClientRect();
+  if (rect.top < 0) {
+    est.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
 
 function estBack() {
