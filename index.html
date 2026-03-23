@@ -1108,7 +1108,10 @@ window.addEventListener('DOMContentLoaded', async () => {
   setTimeout(() => loader.remove(), 400);
 
   // Check for storm alerts in visitor's state (non-blocking)
-  if (location.state) checkStormAlert(location.state);
+  // Support ?teststorm=OH to preview banner for any state
+  const testState = new URLSearchParams(window.location.search).get('teststorm');
+  const stateToCheck = testState || location.state;
+  if (stateToCheck) checkStormAlert(stateToCheck);
 
   // If location arrives late, update just the location-dependent parts silently
   if (!locationResolved) {
