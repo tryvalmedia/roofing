@@ -28,7 +28,7 @@
   .section-label { font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
   h2 { font-family:'Playfair Display',serif; font-size:28px; font-weight:900; color:var(--navy); margin-bottom:20px; }
   p { font-size:15px; line-height:1.8; color:#374151; margin-bottom:16px; }
-  .storm-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:14px; margin:28px 0; }
+  .storm-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:14px; margin-bottom:8px; }
   .storm-card { background:white; border-radius:14px; border:1px solid #e9e4da; padding:18px; }
   .storm-card.severe { border-color:#fca5a5; background:#fff5f5; }
   .storm-card.extreme { border-color:var(--red); background:#fff0f0; }
@@ -60,7 +60,7 @@
 </head>
 <body>
 
-<!--STORM_HISTORY:{"state":"WV","stateName":"West Virginia","lastUpdated":"2026-03-23T15:56:53.817Z","entries":[{"date":"March 22, 2026","dateISO":"2026-03-22T21:00:00.000Z","events":[{"type":"hail","time":"2135","location":"Kenna","description":"1.0\" hail","severity":"moderate"},{"type":"wind","time":"2050","location":"Charleston area","description":"UNK mph winds","severity":"moderate"}]}]}-->
+<!--STORM_HISTORY:{"state":"WV","stateName":"West Virginia","lastUpdated":"2026-03-23T15:57:21.406Z","entries":[{"date":"March 22, 2026","dateISO":"2026-03-22T21:00:00.000Z","events":[{"type":"hail","time":"2135","location":"Kenna","description":"1.0\" hail","severity":"moderate"},{"type":"wind","time":"2050","location":"Charleston area","description":"UNK mph winds","severity":"moderate"}]}]}-->
 
 <div class="alert-bar">⚠️ ACTIVE STORM ALERT — West Virginia — Roof damage may have occurred in your area</div>
 
@@ -68,10 +68,10 @@
   <div class="hero-inner">
     <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
       <div class="storm-badge">🌩️ Active Storm Alert</div>
-      <div class="last-updated">Storm reported: March 22, 2026</div>
+      <div class="last-updated">Last updated: March 23, 2026</div>
     </div>
     <h1>Hail Reported in <em>West Virginia</em> — Get Your Roof Inspected</h1>
-    <p class="hero-sub">Storm activity was recorded in West Virginia on March 22, 2026. Roof damage from hail and wind may not be visible but can worsen quickly — a free inspection costs nothing.</p>
+    <p class="hero-sub">NOAA storm reports show significant weather activity in West Virginia today. Hail, high winds, and severe storms can cause serious roof damage that isn't visible from the ground.</p>
     <a href="tel:+18664669261" class="call-btn">📞 Call (866) 466-9261 — Free Inspection</a>
   </div>
 </div>
@@ -80,11 +80,11 @@
   <div class="stats-strip">
     <div class="stat-box">
       <div class="stat-num">2</div>
-      <div class="stat-label">Storm Events</div>
+      <div class="stat-label">Storm Events (7 days)</div>
     </div>
     <div class="stat-box">
       <div class="stat-num">1</div>
-      <div class="stat-label">Day With Activity</div>
+      <div class="stat-label">Days With Activity</div>
     </div>
     <div class="stat-box">
       <div class="stat-num">Active</div>
@@ -92,29 +92,38 @@
     </div>
   </div>
 
-  <div class="section-label">Storm Report — West Virginia — March 22, 2026</div>
-  <h2>Storm Events Recorded by NOAA</h2>
-  <p>The following storm events were recorded by NOAA's Storm Prediction Center in West Virginia on March 22, 2026.</p>
+  <div class="section-label">Storm History — West Virginia — Last 7 Days</div>
+  <h2>Today's Storm Reports + Recent History</h2>
+  <p>The following storm events were recorded by NOAA's Storm Prediction Center in West Virginia.</p>
 
-  <div style="margin-bottom:32px;">
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
-      <div style="background:rgba(201,146,42,0.15);border:1px solid rgba(201,146,42,0.3);color:#e8b84b;padding:4px 12px;border-radius:100px;font-size:12px;font-weight:600;">
-        📅 March 22, 2026
+  
+    <div style="margin-bottom:32px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+        <div style="background:rgba(220,38,38,0.2);
+          border:1px solid rgba(220,38,38,0.4);
+          color:#fca5a5;
+          padding:4px 12px;border-radius:100px;font-size:12px;font-weight:600;">
+          🔴 Today — March 22, 2026
+        </div>
+        <span style="font-size:12px;color:rgba(247,242,235,0.4);">
+          2 events reported
+        </span>
       </div>
-      <span style="font-size:12px;color:rgba(15,31,46,0.5);">2 events reported</span>
+      <div class="storm-grid">
+        
+        <div class="storm-card moderate">
+          <div class="storm-type hail">HAIL</div>
+          <div class="storm-location">Kenna</div>
+          <div class="storm-detail">1.0" hail · 2135</div>
+        </div>
+        <div class="storm-card moderate">
+          <div class="storm-type wind">WIND</div>
+          <div class="storm-location">Charleston area</div>
+          <div class="storm-detail">UNK mph winds · 2050</div>
+        </div>
+        
+      </div>
     </div>
-    <div class="storm-grid">
-    <div class="storm-card moderate">
-      <div class="storm-type hail">HAIL</div>
-      <div class="storm-location">Kenna</div>
-      <div class="storm-detail">1.0" hail · 2135</div>
-    </div>
-    <div class="storm-card moderate">
-      <div class="storm-type wind">WIND</div>
-      <div class="storm-location">Charleston area</div>
-      <div class="storm-detail">UNK mph winds · 2050</div>
-    </div></div>
-  </div>
 
   <div class="urgency-box">
     <h3>Why You Need to Act Within 48 Hours</h3>
