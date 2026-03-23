@@ -1,0 +1,36 @@
+name: Hourly Storm Monitor
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+jobs:
+  trigger-storm-monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Storm Monitor
+        run: |
+          response=$(curl -s -o /tmp/response.json -w "%{http_code}" \
+            "https://roofcallnow-storm-monitor.vercel.app/api/storm-monitor")
+          echo "HTTP Status: $response"
+          echo "Response: $(cat /tmp/response.json)"
+          if [ "$response" -eq 200 ]; then
+            echo "✅ Storm monitor ran successfully"
+          else
+            echo "❌ Storm monitor returned status $response"
+            exit 1
+          fi
+
+      - name: Refresh Existing Storm Pages
+        run: |
+          response=$(curl -s -o /tmp/refresh.json -w "%{http_code}" \
+            "https://roofcallnow-storm-monitor.vercel.app/api/refresh-pages")
+          echo "HTTP Status: $response"
+          echo "Response: $(cat /tmp/refresh.json)"
+          if [ "$response" -eq 200 ]; then
+            echo "✅ Page refresh ran successfully"
+          else
+            echo "❌ Page refresh returned status $response"
+            exit 1
+          fi
