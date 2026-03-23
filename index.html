@@ -662,6 +662,23 @@
   .urgency-med { background: rgba(232,184,75,0.15); color: var(--gold-light); border: 1px solid rgba(232,184,75,0.3); }
   .urgency-low { background: rgba(74,222,128,0.15); color: #4ade80; border: 1px solid rgba(74,222,128,0.3); }
 
+  /* STORM ALERT BANNER */
+  .storm-banner {
+    display: none;
+    background: linear-gradient(135deg, #7f1d1d, #dc2626);
+    color: white;
+    padding: 14px 24px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+    z-index: 100;
+    animation: stormPulse 2s infinite;
+  }
+  .storm-banner.visible { display: block; }
+  .storm-banner a { color: #fde68a; text-decoration: underline; margin-left: 10px; white-space: nowrap; }
+  @keyframes stormPulse { 0%,100%{opacity:1} 50%{opacity:0.9} }
+
   /* RESPONSIVE */
   @media (max-width: 768px) {
     .hero-content { grid-template-columns: 1fr; gap: 40px; }
@@ -674,7 +691,6 @@
   }
 </style>
 </head>
-  <script type="text/javascript" src="//cdn.callrail.com/companies/460066752/47a84934bca74a15b177/12/swap.js"></script> 
 <body>
 
 <!-- PERSONALIZATION LOADING SCREEN -->
@@ -684,6 +700,12 @@
     <div class="loader-bar-fill"></div>
   </div>
   <div class="loader-text" id="loader-text">Finding local experts near you...</div>
+</div>
+
+<!-- STORM ALERT BANNER — shown dynamically if storm in visitor's area -->
+<div class="storm-banner" id="storm-banner">
+  <span id="storm-banner-text">⚠️ Storm activity reported in your area — roof damage may have occurred</span>
+  <a href="#" id="storm-banner-link">Get a Free Inspection →</a>
 </div>
 
 <!-- TRUST BAR -->
@@ -1085,11 +1107,15 @@ window.addEventListener('DOMContentLoaded', async () => {
   loader.classList.add('hidden');
   setTimeout(() => loader.remove(), 400);
 
+  // Check for storm alerts in visitor's state (non-blocking)
+  if (location.state) checkStormAlert(location.state);
+
   // If location arrives late, update just the location-dependent parts silently
   if (!locationResolved) {
     locationPromise.then(loc => {
       if (loc.city && loc.city !== '' && loc.city !== 'undefined') {
         applyProfile(profile, loc);
+        if (loc.state) checkStormAlert(loc.state);
       }
     });
   }
@@ -1469,7 +1495,23 @@ function estRestart() {
 // Init estimator on load
 document.addEventListener('DOMContentLoaded', () => { renderEstStep(); });
 
-
+// ─── STORM ALERT CHECK ────────────────────────────────────────────────────────
+async function checkStormAlert(stateCode) {
+  if (!stateCode) return;
+  try {
+    const res = await fetch(`https://roofcallnow-storm-monitor.vercel.app/api/storm-check?state=${stateCode}`);
+    const data = await res.json();
+    if (data.alert) {
+      const banner = document.getElementById('storm-banner');
+      const text = document.getElementById('storm-banner-text');
+      const link = document.getElementById('storm-banner-link');
+      text.textContent = data.alert.message;
+      link.href = data.alert.alertPageUrl;
+      link.textContent = data.alert.ctaText + ' →';
+      banner.classList.add('visible');
+    }
+  } catch (e) {}
+}
 
 function handleCall() {
   const zip = document.getElementById('zip-input').value;
@@ -1488,6 +1530,5 @@ function handleCall() {
   window.location.href = 'tel:+18664669261';
 }
 </script>
-  <script type="text/javascript" src="//cdn.callrail.com/companies/460066752/47a84934bca74a15b177/12/swap.js"></script> 
 </body>
 </html>
