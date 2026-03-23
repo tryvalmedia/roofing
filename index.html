@@ -5,9 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Local Roofing Experts</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #0f1f2e;
@@ -858,9 +856,9 @@
 </div>
 
 <footer>
-  © 2026 RoofCallNow LLC · Wyoming · Licensed Contractors Only · 
-  <a href="privacy-policy.html" style="color: rgba(247,242,235,0.4);">Privacy Policy</a> · 
-  <a href="terms.html" style="color: rgba(247,242,242,0.4);">Terms of Service</a>
+  © 2025 HomePro Roofing Network · All Rights Reserved · Licensed Contractors Only · 
+  <a href="#" style="color: rgba(247,242,235,0.4);">Privacy Policy</a> · 
+  <a href="#" style="color: rgba(247,242,242,0.4);">Terms</a>
 </footer>
 
 <script>
@@ -1003,34 +1001,22 @@ function applyProfile(profile, location) {
 // ─── INIT ──────────────────────────────────────────────────────────────────
 
 window.addEventListener('DOMContentLoaded', async () => {
+  const loaderText = document.getElementById('loader-text');
   const loader = document.getElementById('personalization-loading');
 
-  // Detect profile immediately from URL params — no waiting
+  setTimeout(() => loaderText.textContent = 'Personalizing your experience...', 600);
+  setTimeout(() => loaderText.textContent = 'Almost ready...', 1100);
+
+  const [location] = await Promise.all([
+    detectLocation(),
+    new Promise(r => setTimeout(r, 1500))
+  ]);
+
   const profile = detectProfile();
-
-  // Start location fetch but don't block — show page after 800ms max
-  let locationResolved = false;
-  const locationPromise = detectLocation().then(location => {
-    locationResolved = true;
-    return location;
-  });
-
-  const timeoutPromise = new Promise(r => setTimeout(() => r({ city: '', state: '', zip: '' }), 800));
-
-  const location = await Promise.race([locationPromise, timeoutPromise]);
-
   applyProfile(profile, location);
-  loader.classList.add('hidden');
-  setTimeout(() => loader.remove(), 400);
 
-  // If location arrives late, update just the location-dependent parts silently
-  if (!locationResolved) {
-    locationPromise.then(loc => {
-      if (loc.city && loc.city !== '' && loc.city !== 'undefined') {
-        applyProfile(profile, loc);
-      }
-    });
-  }
+  loader.classList.add('hidden');
+  setTimeout(() => loader.remove(), 600);
 });
 
 // ─── DAMAGE ESTIMATOR ────────────────────────────────────────────────────────
