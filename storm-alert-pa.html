@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Storm Damage Roofing Help — Pennsylvania | RoofCallNow</title>
-<meta name="description" content="Storm damage reported in Pennsylvania on March 23, 2026. Get a free roof inspection from a licensed local contractor. Call (866) 466-9261 now.">
+<title>Active Storm Alert — Pennsylvania Roofing | RoofCallNow</title>
+<meta name="description" content="Active storm damage reported in Pennsylvania. Get a free roof inspection from a licensed local contractor. Call (866) 466-9261.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -13,12 +13,12 @@
   :root { --navy:#0f1f2e; --gold:#c9922a; --gold-light:#e8b84b; --cream:#f7f2eb; --rust:#b94a2c; --white:#fff; --gray:#6b7280; --red:#dc2626; }
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--navy); }
-  .alert-bar { background:var(--red); color:white; text-align:center; padding:12px 20px; font-size:14px; font-weight:600; letter-spacing:0.02em; animation:pulse 2s infinite; }
+  .alert-bar { background:#dc2626; color:white; text-align:center; padding:12px 20px; font-size:14px; font-weight:600; animation:pulse 2s infinite; }
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.85} }
   .hero { background:linear-gradient(135deg,#1a0a0a 0%,#2d1515 60%,#1a0a0a 100%); padding:60px 40px; }
   .hero-inner { max-width:900px; margin:0 auto; }
   .storm-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(220,38,38,0.2); border:1px solid rgba(220,38,38,0.5); color:#fca5a5; padding:6px 14px; border-radius:100px; font-size:13px; font-weight:600; margin-bottom:20px; }
-  .date-pill { display:inline-block; background:rgba(201,146,42,0.15); border:1px solid rgba(201,146,42,0.3); color:var(--gold-light); padding:5px 12px; border-radius:100px; font-size:12px; margin-bottom:16px; margin-left:10px; }
+  .last-updated { display:inline-block; background:rgba(201,146,42,0.15); border:1px solid rgba(201,146,42,0.3); color:var(--gold-light); padding:5px 12px; border-radius:100px; font-size:12px; margin-bottom:16px; margin-left:10px; }
   h1 { font-family:'Playfair Display',serif; font-size:clamp(28px,4vw,50px); font-weight:900; color:var(--white); line-height:1.1; margin-bottom:16px; }
   h1 em { font-style:normal; color:#fca5a5; }
   .hero-sub { font-size:16px; color:rgba(247,242,235,0.75); line-height:1.7; margin-bottom:32px; max-width:600px; }
@@ -28,15 +28,15 @@
   .section-label { font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
   h2 { font-family:'Playfair Display',serif; font-size:28px; font-weight:900; color:var(--navy); margin-bottom:20px; }
   p { font-size:15px; line-height:1.8; color:#374151; margin-bottom:16px; }
-  .storm-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px; margin:28px 0; }
-  .storm-card { background:white; border-radius:14px; border:1px solid #e9e4da; padding:20px; }
+  .storm-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:14px; margin:28px 0; }
+  .storm-card { background:white; border-radius:14px; border:1px solid #e9e4da; padding:18px; }
   .storm-card.severe { border-color:#fca5a5; background:#fff5f5; }
   .storm-card.extreme { border-color:var(--red); background:#fff0f0; }
   .storm-type { font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px; }
   .storm-type.hail { color:var(--gold); }
   .storm-type.wind { color:#3b82f6; }
   .storm-type.tornado { color:var(--red); }
-  .storm-location { font-weight:700; font-size:16px; color:var(--navy); margin-bottom:4px; }
+  .storm-location { font-weight:700; font-size:15px; color:var(--navy); margin-bottom:4px; }
   .storm-detail { font-size:13px; color:var(--gray); }
   .urgency-box { background:var(--navy); border-radius:16px; padding:32px; margin:40px 0; text-align:center; }
   .urgency-box h3 { font-family:'Playfair Display',serif; font-size:24px; color:var(--white); margin-bottom:12px; }
@@ -46,102 +46,89 @@
   .step-num { width:34px; height:34px; background:var(--navy); color:var(--gold-light); border-radius:10px; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:17px; font-weight:900; margin-bottom:12px; }
   .step h4 { font-size:14px; font-weight:700; margin-bottom:6px; }
   .step p { font-size:13px; margin:0; }
-  .bottom-cta { background:linear-gradient(135deg,var(--red),#991b1b); padding:50px 40px; text-align:center; }
+  .stats-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:32px 0; }
+  .stat-box { background:white; border-radius:12px; border:1px solid #e9e4da; padding:20px; text-align:center; }
+  .stat-num { font-family:'Playfair Display',serif; font-size:28px; font-weight:900; color:var(--navy); }
+  .stat-label { font-size:12px; color:var(--gray); margin-top:4px; }
+  .bottom-cta { background:linear-gradient(135deg,#dc2626,#991b1b); padding:50px 40px; text-align:center; }
   .bottom-cta h2 { font-family:'Playfair Display',serif; font-size:clamp(24px,3vw,38px); color:white; margin-bottom:10px; }
   .bottom-cta p { color:rgba(255,255,255,0.75); margin-bottom:28px; }
   footer { background:var(--navy); padding:20px 40px; text-align:center; font-size:12px; color:rgba(247,242,235,0.35); }
   footer a { color:rgba(247,242,235,0.4); text-decoration:none; }
-  @media(max-width:768px) { .steps{grid-template-columns:1fr;} .content{padding:40px 24px;} .hero{padding:40px 24px;} }
+  @media(max-width:768px) { .steps{grid-template-columns:1fr;} .stats-strip{grid-template-columns:1fr 1fr;} .content{padding:40px 24px;} .hero{padding:40px 24px;} }
 </style>
 </head>
 <body>
+
+<!--STORM_HISTORY:{"state":"PA","stateName":"Pennsylvania","lastUpdated":"2026-03-23T15:56:52.657Z","entries":[{"date":"March 22, 2026","dateISO":"2026-03-22T21:00:00.000Z","events":[{"type":"hail","time":"2100","location":"Strattanville","description":"1.25\" hail","severity":"severe"},{"type":"hail","time":"2102","location":"Clarion","description":"1.5\" hail","severity":"severe"},{"type":"wind","time":"2025","location":"Beech Creek","description":"UNK mph winds","severity":"moderate"},{"type":"wind","time":"2042","location":"Millheim","description":"UNK mph winds","severity":"moderate"}]}]}-->
 
 <div class="alert-bar">⚠️ ACTIVE STORM ALERT — Pennsylvania — Roof damage may have occurred in your area</div>
 
 <div class="hero">
   <div class="hero-inner">
     <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
-      <div class="storm-badge">🌩️ Storm Alert</div>
-      <div class="date-pill">March 23, 2026</div>
+      <div class="storm-badge">🌩️ Active Storm Alert</div>
+      <div class="last-updated">Storm reported: March 22, 2026</div>
     </div>
     <h1>Hail Reported in <em>Pennsylvania</em> — Get Your Roof Inspected</h1>
-    <p class="hero-sub">NOAA storm reports show significant weather activity in Pennsylvania today. Hail, high winds, and severe storms can cause serious roof damage that isn't visible from the ground — and waiting to inspect can turn a $500 repair into a $15,000 replacement.</p>
+    <p class="hero-sub">Storm activity was recorded in Pennsylvania on March 22, 2026. Roof damage from hail and wind may not be visible but can worsen quickly — a free inspection costs nothing.</p>
     <a href="tel:+18664669261" class="call-btn">📞 Call (866) 466-9261 — Free Inspection</a>
   </div>
 </div>
 
 <div class="content">
-  <div class="section-label">Today's Storm Reports — Pennsylvania</div>
-  <h2>What Was Reported in Pennsylvania</h2>
-  <p>The following storm events were recorded by NOAA's Storm Prediction Center in Pennsylvania today. Each of these events is capable of causing significant roof damage.</p>
+  <div class="stats-strip">
+    <div class="stat-box">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Storm Events</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">1</div>
+      <div class="stat-label">Day With Activity</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">Active</div>
+      <div class="stat-label">Alert Status</div>
+    </div>
+  </div>
 
-  <div class="storm-grid">
-    
-    <div class="storm-card extreme">
+  <div class="section-label">Storm Report — Pennsylvania — March 22, 2026</div>
+  <h2>Storm Events Recorded by NOAA</h2>
+  <p>The following storm events were recorded by NOAA's Storm Prediction Center in Pennsylvania on March 22, 2026.</p>
+
+  <div style="margin-bottom:32px;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+      <div style="background:rgba(201,146,42,0.15);border:1px solid rgba(201,146,42,0.3);color:#e8b84b;padding:4px 12px;border-radius:100px;font-size:12px;font-weight:600;">
+        📅 March 22, 2026
+      </div>
+      <span style="font-size:12px;color:rgba(15,31,46,0.5);">4 events reported</span>
+    </div>
+    <div class="storm-grid">
+    <div class="storm-card severe">
       <div class="storm-type hail">HAIL</div>
       <div class="storm-location">Strattanville</div>
-      <div class="storm-detail">41.2" hail · 2100</div>
+      <div class="storm-detail">1.25" hail · 2100</div>
     </div>
-    <div class="storm-card extreme">
-      <div class="storm-type hail">HAIL</div>
-      <div class="storm-location">2 SW Clarion</div>
-      <div class="storm-detail">41.19" hail · 2102</div>
-    </div>
-    <div class="storm-card extreme">
+    <div class="storm-card severe">
       <div class="storm-type hail">HAIL</div>
       <div class="storm-location">Clarion</div>
-      <div class="storm-detail">41.21" hail · 2102</div>
+      <div class="storm-detail">1.5" hail · 2102</div>
     </div>
-    <div class="storm-card extreme">
-      <div class="storm-type hail">HAIL</div>
-      <div class="storm-location">6 SSE Brookville</div>
-      <div class="storm-detail">41.09" hail · 2200</div>
+    <div class="storm-card moderate">
+      <div class="storm-type wind">WIND</div>
+      <div class="storm-location">Beech Creek</div>
+      <div class="storm-detail">UNK mph winds · 2025</div>
     </div>
-    <div class="storm-card extreme">
-      <div class="storm-type hail">HAIL</div>
-      <div class="storm-location">2 W Brookville</div>
-      <div class="storm-detail">41.16" hail · 2253</div>
-    </div>
-    <div class="storm-card extreme">
-      <div class="storm-type hail">HAIL</div>
-      <div class="storm-location">Brookville</div>
-      <div class="storm-detail">41.16" hail · 2256</div>
-    </div>
-    <div class="storm-card extreme">
-      <div class="storm-type hail">HAIL</div>
-      <div class="storm-location">3 WNW Aliquippa</div>
-      <div class="storm-detail">40.63" hail · 2257</div>
-    </div>
-    <div class="storm-card extreme">
-      <div class="storm-type hail">HAIL</div>
-      <div class="storm-location">2 SW Aliquippa</div>
-      <div class="storm-detail">40.59" hail · 2259</div>
-    </div>
-    <div class="storm-card extreme">
-      <div class="storm-type hail">HAIL</div>
-      <div class="storm-location">1 SE Hyde</div>
-      <div class="storm-detail">40.99" hail · 2337</div>
-    </div>
-    <div class="storm-card extreme">
-      <div class="storm-type hail">HAIL</div>
-      <div class="storm-location">New Bethlehem</div>
-      <div class="storm-detail">41" hail · 2338</div>
-    </div>
-    <div class="storm-card extreme">
-      <div class="storm-type hail">HAIL</div>
-      <div class="storm-location">1 NW Philipsburg</div>
-      <div class="storm-detail">40.9" hail · 2343</div>
-    </div>
-    <div class="storm-card extreme">
-      <div class="storm-type hail">HAIL</div>
-      <div class="storm-location">1 NW Philipsburg</div>
-      <div class="storm-detail">40.9" hail · 2350</div>
-    </div>
+    <div class="storm-card moderate">
+      <div class="storm-type wind">WIND</div>
+      <div class="storm-location">Millheim</div>
+      <div class="storm-detail">UNK mph winds · 2042</div>
+    </div></div>
   </div>
 
   <div class="urgency-box">
     <h3>Why You Need to Act Within 48 Hours</h3>
-    <p>Insurance claims for storm damage must typically be filed within 12 months — but the documentation window is now. A licensed inspector can identify damage, photograph it, and help you file a claim before evidence degrades. Most homeowner's insurance policies cover hail and wind damage with no out-of-pocket cost beyond your deductible.</p>
+       <p>Insurance claims for storm damage must typically be filed within 12 months — but the documentation window is now. A licensed inspector can identify damage, photograph it, and help you file a claim before evidence degrades.</p>
     <a href="tel:+18664669261" class="call-btn" style="display:inline-flex;">📞 Get a Free Inspection Now</a>
   </div>
 
@@ -150,7 +137,7 @@
   <div class="steps">
     <div class="step"><div class="step-num">1</div><h4>Call Us Now</h4><p>Call (866) 466-9261 — we'll connect you with an available Pennsylvania contractor immediately.</p></div>
     <div class="step"><div class="step-num">2</div><h4>Free Inspection</h4><p>A licensed contractor inspects your roof at no charge and documents any storm damage found.</p></div>
-    <div class="step"><div class="step-num">3</div><h4>Insurance Help</h4><p>Your contractor helps you understand your claim options. Most storm repairs cost you nothing out of pocket.</p></div>
+    <div class="step"><div class="step-num">3</div><h4>Insurance Help</h4><p>Your contractor helps you understand your claim options. Most storm repairs cost nothing out of pocket.</p></div>
   </div>
 </div>
 
